@@ -1,27 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MAKING A CSS CODE WITH LISA'S LOVE</title>
   <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Background cherry blossom branches effect -->
-  <div class="background-branches"></div>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- Cherry blossom petals fall effect -->
+    body {
+      background: linear-gradient(to top, #ffaad4, #ffccf2);
+      font-family: 'Georgia', serif;
+      color: #5d3a3a;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      overflow-y: auto;
+      position: relative;
+      background-size: 400% 400%;
+      animation: gradientMovement 8s ease infinite;
+    }
+
+    @keyframes gradientMovement {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .background-branches {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #ffb6c1, #ffcccb);
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .letter-container {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 3rem;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      max-width: 750px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: float 6s ease-in-out infinite;
+      margin-bottom: 10px;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #b03060;
+      font-family: 'Georgia', serif;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-family: 'Georgia', serif;
+      color: #4f2c2c;
+      text-align: justify;
+    }
+
+    .closing {
+      margin-top: 2rem;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: #d2691e;
+    }
+
+    .signature {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #ff69b4;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Cherry Blossom Rain */
+    .petal-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .petal {
+      position: absolute;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite, sway ease-in-out infinite alternate, rotate linear infinite;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0.2;
+      }
+    }
+
+    @keyframes sway {
+      0% {
+        transform: translateX(0px);
+      }
+
+      100% {
+        transform: translateX(50px);
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-branches"></div>
   <div class="petal-container"></div>
 
-  <!-- Main content -->
   <div class="letter-container">
-    <!-- You can add an image here, like a GIF -->
+    <!-- GIF updated with the correct URL -->
+    <img src="https://media.gifdb.com/my-melody-kisses-bix0lq37fgj0vk0t.gif" alt="My Melody Kisses" class="my-melody">
     <h1>My Darling,</h1>
-    <p>Thank you for always being by my side. I truly appreciate you for everything you do...</p>
-    <p>More content...</p>
+    <p>
+      Thank you for always being by my side. I truly appreciate you for everything you do. I’m so grateful to walk this life with you by my side. With you by my side, I feel like I can do anything. Your love gives me strength to write this CSS code, and I am so happy to be able to share this with you. I hope you like it. 🌸
+    </p>
+    <p>
+      Thank you for believing in me, even when I struggled to believe in myself. Thank you for your understanding on the days when I’m less than perfect, and for your encouragement when the world feels overwhelming. You inspire me to be a better version of myself, not because you ask me to change, but because you remind me of everything good that already exists within me. You show me that the world is full of opportunities, and I can always do my best, even in the toughest of times.
+    </p>
+    <p>
+      There are so many moments, big and small, that have shaped me because of you. I often find myself smiling without realizing it, though they do leave me in awe of your kindness, but the everyday acts of love that mean the most. It's how you check on me when you sense something’s not quite right, or how you laugh at my silly jokes, making me feel like I'm the funniest person in the world. Those little things create memories that make every day so special.
+    </p>
+    <p>
+      I love you so much, Lisa. I love you more than I can express in words. I love you more than I can express in code. I love you more than I can express in this letter. I love you more than I can express in this life. I love you more than I can express in this universe. I love you more than I can express in this galaxy. The depth of my feelings for you is beyond measure, beyond time, and beyond space. Every time I think I've reached the limit of how much love I have for you, I realize there’s always more to give, more to experience, more to share.
+    </p>
+    <p>
+      Please know that I will always appreciate you, and that my love for you is something I will continue to celebrate and honor. You are my love, my peace, and my home. You bring so much light into my life, and you help me navigate the darkness with your unwavering support and compassion. Your presence in my life is like a warm, comforting embrace, making me feel safe, cherished, and deeply understood. I never want to take any moment with you for granted, because every second spent with you is a gift that I hold dear.
+    </p>
+    <p>
+      Even during times when things may seem difficult, I find comfort in the fact that I’m walking through it with you. I know that as long as we’re together, we can overcome any obstacle, no matter how big or small. You have shown me what true strength looks like — it’s not just about facing challenges with a brave face, but knowing when to lean on someone, when to ask for help, and when to rest. And with you by my side, I never feel like I’m alone in any of it.
+    </p>
+    <p>
+      I’ve learned so much from you, not just about love, but about life itself. You remind me every day that the simple joys matter the most, and it’s the quiet moments that sometimes hold the greatest peace. From sipping coffee together in the mornings to sharing dreams late at night, those little experiences are what make life so beautiful. I’m grateful for the way you see the world, and how you’ve taught me to appreciate the beauty in the small things.
+    </p>
+    <p>
+      I promise to continue growing with you, supporting you, and honoring our love in everything I do. I will strive to be the best version of myself, not just for me, but for us. I want to be the person who brings you happiness, peace, and all the love you deserve. You are my everything, and there’s nothing I want more than to see you smile, to hold you close, and to share every chapter of our lives together.
+    </p>
+    <p class="closing">
+      Forever yours,<br>
+      <span class="signature">GYATSSER</span>
+    </p>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const petalContainer = document.querySelector('.petal-container');
+    const petalCount = 50; // Number of petals
+
+    for (let i = 0; i < petalCount; i++) {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+      petal.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random fall duration
+      petal.style.animationDelay = Math.random() * 5 + 's'; // Random delay before falling
+      petalContainer.appendChild(petal);
+    }
+  </script>
 </body>
+
 </html>

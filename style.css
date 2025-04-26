@@ -1,0 +1,109 @@
+/* General reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(to top, #ffaad4, #ffccf2);
+  font-family: 'Georgia', serif;
+  color: #5d3a3a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  overflow-y: auto;
+  position: relative;
+  background-size: 400% 400%;
+  animation: gradientMovement 8s ease infinite;
+}
+
+@keyframes gradientMovement {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.background-branches {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #ffb6c1, #ffcccb);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.letter-container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 3rem;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  max-width: 750px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #b03060;
+  font-family: 'Georgia', serif;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-family: 'Georgia', serif;
+  color: #4f2c2c;
+  text-align: justify;
+}
+
+/* Cherry Blossom Rain */
+.petal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.petal {
+  position: absolute;
+  top: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: #ff69b4;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall linear infinite, sway ease-in-out infinite alternate, rotate linear infinite;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0.2; }
+}
+
+@keyframes sway {
+  0% { transform: translateX(0px); }
+  100% { transform: translateX(50px); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

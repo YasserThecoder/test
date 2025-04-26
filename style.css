@@ -1,237 +1,234 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Darling</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  background: linear-gradient(to top, #ffaad4, #ffccf2);
-  font-family: 'Georgia', serif;
-  color: #5d3a3a;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
-  overflow-y: auto;
-  position: relative;
-  background-size: 400% 400%;
-  animation: gradientMovement 8s ease infinite;
-}
+    body {
+      background: linear-gradient(to top, #ffaad4, #ffccf2);
+      font-family: 'Georgia', serif;
+      color: #5d3a3a;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      overflow-y: auto;
+      position: relative;
+      background-size: 400% 400%;
+      animation: gradientMovement 8s ease infinite;
+    }
 
-@keyframes gradientMovement {
-  0% {
-    background-position: 0% 50%;
-  }
+    @keyframes gradientMovement {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
 
-  50% {
-    background-position: 100% 50%;
-  }
+    /* Glittering background effect */
+    .background-glitter {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: url('https://cdn.pixabay.com/photo/2020/04/21/16/44/sparkles-5072666_960_720.png') repeat;
+      opacity: 0.2;
+      animation: glitterAnimation 2s linear infinite;
+      z-index: -1;
+    }
 
-  100% {
-    background-position: 0% 50%;
-  }
-}
+    @keyframes glitterAnimation {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
 
-/* Glittering background effect */
-.background-glitter {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: url('https://cdn.pixabay.com/photo/2020/04/21/16/44/sparkles-5072666_960_720.png') repeat;
-  opacity: 0.2;
-  animation: glitterAnimation 2s linear infinite;
-  z-index: -1;
-}
+    /* Letter Container */
+    .letter-container {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 3rem;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      max-width: 750px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: float 6s ease-in-out infinite;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
 
-@keyframes glitterAnimation {
-  0% {
-    background-position: 0 0;
-  }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
 
-  100% {
-    background-position: 100% 100%;
-  }
-}
+    .letter-container:hover {
+      transform: scale(1.03);
+    }
 
-/* Letter Container */
-.letter-container {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 3rem;
-  border-radius: 25px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  max-width: 750px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  animation: float 6s ease-in-out infinite;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease;
-}
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #b03060;
+      font-family: 'Georgia', serif;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      animation: shimmer 1s ease-in-out infinite;
+    }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
+    @keyframes shimmer {
+      0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+      }
+      100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+    }
 
-  50% {
-    transform: translateY(-10px);
-  }
-}
+    p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-family: 'Georgia', serif;
+      color: #4f2c2c;
+      text-align: justify;
+    }
 
-.letter-container:hover {
-  transform: scale(1.03);
-}
+    .closing {
+      margin-top: 2rem;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: #d2691e;
+    }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: #b03060;
-  font-family: 'Georgia', serif;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  animation: shimmer 1s ease-in-out infinite;
-}
+    .signature {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #ff69b4;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      animation: shimmer 1s ease-in-out infinite;
+    }
 
-@keyframes shimmer {
-  0% {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
-  }
+    /* Cherry Blossom Rain */
+    .petal-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
 
-  50% {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
-  }
+    .petal {
+      position: absolute;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite, sway ease-in-out infinite alternate, rotate linear infinite, sparkle 1s infinite;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
 
-  100% {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
-  }
-}
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0.2;
+      }
+    }
 
-p {
-  font-size: 1.3rem;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-  font-family: 'Georgia', serif;
-  color: #4f2c2c;
-  text-align: justify;
-}
+    @keyframes sway {
+      0% {
+        transform: translateX(0px);
+      }
+      100% {
+        transform: translateX(50px);
+      }
+    }
 
-.closing {
-  margin-top: 2rem;
-  font-style: italic;
-  font-size: 1.6rem;
-  color: #d2691e;
-}
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-.signature {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #ff69b4;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  animation: shimmer 1s ease-in-out infinite;
-}
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
 
-/* Cherry Blossom Rain */
-.petal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
+    /* Stars animation */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      background: url('https://cdn.pixabay.com/photo/2016/11/16/15/14/stars-1836841_960_720.jpg') repeat;
+      opacity: 0.1;
+      animation: twinkle 2s infinite ease-in-out;
+    }
 
-.petal {
-  position: absolute;
-  top: -50px;
-  width: 30px;
-  height: 30px;
-  background-color: #ff69b4;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: fall linear infinite, sway ease-in-out infinite alternate, rotate linear infinite, sparkle 1s infinite;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(100vh) rotate(720deg);
-    opacity: 0.2;
-  }
-}
-
-@keyframes sway {
-  0% {
-    transform: translateX(0px);
-  }
-
-  100% {
-    transform: translateX(50px);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes sparkle {
-  0%, 100% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-/* Stars animation */
-.stars {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  background: url('https://cdn.pixabay.com/photo/2016/11/16/15/14/stars-1836841_960_720.jpg') repeat;
-  opacity: 0.1;
-  animation: twinkle 2s infinite ease-in-out;
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: 0.1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0.1;
-  }
-}
-</style>
+    @keyframes twinkle {
+      0% {
+        opacity: 0.1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0.1;
+      }
+    }
+  </style>
 </head>
-
 <body>
   <!-- Glitter Background -->
   <div class="background-glitter"></div>
@@ -271,5 +268,4 @@ p {
     }
   </script>
 </body>
-
 </html>

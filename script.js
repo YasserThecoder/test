@@ -37,7 +37,9 @@ function createGlitterParticle() {
 
 // Function to animate glitter particles
 function animateGlitterParticles() {
-  createGlitterParticle(); // Create a new glitter particle every 100ms
+  if (Math.random() > 0.2) { // Reduce the rate of glitter particle creation
+    createGlitterParticle(); // Create a new glitter particle every 100ms
+  }
 }
 
 // Call the glitter particle animation function every 100ms
@@ -85,4 +87,41 @@ window.addEventListener('resize', () => {
     const randomX = Math.random() * 100 + 'vw';
     petal.style.left = randomX; // Adjust petal position based on new screen size
   });
+});
+
+// Optional: Throttle the mousemove event listener for performance optimization
+let throttleTimeout;
+document.addEventListener('mousemove', (e) => {
+  clearTimeout(throttleTimeout);
+  throttleTimeout = setTimeout(() => {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    const petals = document.querySelectorAll('.petal');
+    petals.forEach(petal => {
+      const petalX = petal.offsetLeft + petal.offsetWidth / 2;
+      const petalY = petal.offsetTop + petal.offsetHeight / 2;
+
+      const distanceX = mouseX - petalX;
+      const distanceY = mouseY - petalY;
+
+      const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+      const movement = Math.min(distance / 10, 50); // Set max movement
+      petal.style.transform = `translate3d(${distanceX / 10}px, ${distanceY / 10}px, 0)`;
+    });
+
+    // Make glitter particles follow the mouse
+    const glitterParticles = document.querySelectorAll('.glitter-particle');
+    glitterParticles.forEach(particle => {
+      const glitterX = particle.offsetLeft + particle.offsetWidth / 2;
+      const glitterY = particle.offsetTop + particle.offsetHeight / 2;
+
+      const distanceX = mouseX - glitterX;
+      const distanceY = mouseY - glitterY;
+
+      const movement = Math.min(Math.sqrt(distanceX * distanceX + distanceY * distanceY) / 10, 30);
+      particle.style.transform = `translate3d(${distanceX / 30}px, ${distanceY / 30}px, 0)`;
+    });
+  }, 10); // Delay processing the mousemove event for 10ms
 });

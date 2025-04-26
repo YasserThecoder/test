@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MAKING A CSS CODE WITH LISA'S LOVE</title>
   <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  
   <style>
     * {
       margin: 0;
@@ -170,6 +171,36 @@
         transform: rotate(360deg);
       }
     }
+
+    /* Glitter Effect (Pink Sparkles) */
+    .glitter {
+      position: absolute;
+      pointer-events: none;
+      width: 5px;
+      height: 5px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+      opacity: 0;
+      animation: glitterSparkle 1.5s ease-in-out infinite;
+    }
+
+    @keyframes glitterSparkle {
+      0% {
+        opacity: 0.5;
+        transform: scale(0.5);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+    }
+
   </style>
 </head>
 
@@ -178,8 +209,9 @@
   <div class="petal-container"></div>
 
   <div class="letter-container">
-    <!-- GIF updated with the correct URL -->
-    <img src="https://media.gifdb.com/my-melody-kisses-bix0lq37fgj0vk0t.gif" alt="My Melody Kisses" class="my-melody">
+    <!-- Corrected GIF with width/height auto to ensure proper rendering -->
+    <img src="https://media.tenor.com/49kZ9md08r8AAAAC/ibunwoo-happy.gif" alt="My Melody Happy" style="width: auto; height: auto; border-radius: 15px; margin-bottom: 20px;">
+    
     <h1>My Darling,</h1>
     <p>
       Thank you for always being by my side. I truly appreciate you for everything you do. I’m so grateful to walk this life with you by my side. With you by my side, I feel like I can do anything. Your love gives me strength to write this CSS code, and I am so happy to be able to share this with you. I hope you like it. 🌸
@@ -211,19 +243,6 @@
     </p>
   </div>
 
-  <script>
-    const petalContainer = document.querySelector('.petal-container');
-    const petalCount = 50; // Number of petals
-
-    for (let i = 0; i < petalCount; i++) {
-      const petal = document.createElement('div');
-      petal.classList.add('petal');
-      petal.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-      petal.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random fall duration
-      petal.style.animationDelay = Math.random() * 5 + 's'; // Random delay before falling
-      petalContainer.appendChild(petal);
-    }
-  </script>
 </body>
 
 </html>
